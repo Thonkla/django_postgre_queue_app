@@ -58,7 +58,7 @@
 	cd /your_path
 	mkdir LoreQ
 	cd LoreQ
-	git clone https://github.com/Thonkla/django_postgre_queue_app.git .
+	git clone https://github.com/Thonkla/django_postgre_queue_app.git
 ### Create a Virtual Environment
 	pip install virtualenv
 	cd LoreQ
