@@ -54,24 +54,24 @@ create table: menu (insert your menu)
 	* menu_name (character varying 100)
 	* menu_price (double precision)
 	* quantity (integer)
--   Clone
+# Clone
 	* cd /your_path
 	* mkdir LoreQ
 	* cd LoreQ
 	* git clone https://github.com/Thonkla/django_postgre_queue_app.git .
--   Create a Virtual Environment
+# Create a Virtual Environment
 	* pip install virtualenv
 	* cd LoreQ
 	* python3.9 -m virtualenv .
 	* .\Scripts\activate
 	**For Mac use:**  `source bin/activate`
--   Install Dependencies
+# Install Dependencies
 	* pip install -r requirements.txt
 	* Add Your Environment variable to  `.env`. Refer  `.sample.env`  file.
--   Make Migrations
+# Make Migrations
 	* cd /your_path/LoreQ
 	* python manage.py makemigrations
 	* python manage.py migrate
--   Run Dev Server
+# Run Dev Server
 	* python manage.py runserver localhost:8000
 	* Open  [localhost:8000](http://localhost:8000/)  in Browser.
