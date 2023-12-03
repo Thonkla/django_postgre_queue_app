@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="{% static 'js/reportListAllQueue.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <a href="controlnextqueue">Controll Queue</a>
+    <a href="reportListAllQueue">All Queue</a>
+
+    <title>All Queue</title>
+</head>
+<body>
+    <h1> Control Queue</h1>
+
+    <!-- <h1>My Table {{Tno}}</h1> -->
+    <table class="table">
+        <thead>
+          
+          <tr><center>
+            <th scope="col">Queue No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Table No.</th>
+            <th scope="col">Status</th>
+          </center></tr>
+        </thead>
+        <tbody>
+            
+        {% for name in Qdata %}
+        <tr>
+        <td>{{name.queue_id}}</td>
+        <td>{{name.username}}</td>
+        <td>{{name.table_no}}</td>
+        <td>{{name.status}}</td>
+        <!-- <td><a class="btn btn-success">Order Detail</a></td> -->
+        {% endfor %}
+        
+        </tr>
+        </tbody>
+    </table>
+
+    <td><a href="{% url 'next_queue' %}" class="btn btn-success">Next Queue</a></td>
+</body>
+</html>

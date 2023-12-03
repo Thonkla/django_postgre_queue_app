@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="{% static 'js/paymentsuccess.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Queue no.{{queue_no}}</title>
+</head>
+<body>
+    <div class="card-body mx-4">
+    <div id="printableArea">    
+        <div class="container">
+        <p class="my-5 mx-5" style="font-size: 30px;">LORE Q</p>
+            <div class="row">
+                <ul class="list-unstyled">
+                    <li class="text-black mt-1"><span class="text-black">คิวที่</span> #{{queue_no}}</li>
+                    <li class="text-black mt-1">ชำระ: {{paymentmethod}}</li>
+                    <li class="text-black mt-1">{{date}} {{time}}</li>
+                </ul>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">ชื่อ</th>
+                        <th scope="col">จำนวน</th>
+                        
+                        <th scope="col"><p class="float-end">รวม</p></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <hr style="border: 2px solid black;">
+                    {% for name in all_menu %}
+                    <tr>
+                    <div class="col-xl-10">
+                        <td>{{name.menu_name}}</td>
+                        <td>{{name.quantity}}</td>
+                        
+                    </div>
+                    <div class="col-xl-2">
+                        <td><p class="float-end">{{name.price}}</p></td>
+                    </div>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row text-black">
+    
+            <div class="col-xl-12">
+                <p class="float-end fw-bold">ยอดรวม: {{ttprice}}
+                </p>
+            </div>
+            <hr style="border: 2px solid black;">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <input type="button" onclick="printDiv('printableArea')" class="float-end fw-bold" value="พิมพ์" />
+</div>
+</div>
+
+</body>
+</html>

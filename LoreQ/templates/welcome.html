@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="{% static 'js/welcome.js' %}"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/welcome.css'%}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Document</title> 
+
+    {% block title %}
+        <title>Hi, Welcome!!</title>
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <div>
+        {% block content %}
+        <div class="wrapper">
+                <!-- <h1 class="text-center">What's ur name??</h1> -->
+                
+
+                {% if messages %}
+                    {{messages}}
+                {% endif %}
+                <img src="{% static 'img/logo.png' %}"></td>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="username" name="UserName" class="form-control" placeholder="Name">
+                        <i class='bx bxs-user' ></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="table_no" name="Table_no" class="form-control" placeholder="Table No">
+                        <i class='bx bx-fork' ></i>
+                    </div>
+                    <input type="submit" onclick="gosite(event)" value="Start" class="btn btn-success"></input>
+
+                </form>
+
+        </div>
+        {% endblock %}
+    </div>
+ 
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <title>Main</title>
+{% endblock %}
+{% block content %}
+    <script src="{% static 'js/search.js' %}"></script>
+    <h1 class="text-center">Hello, {{Uname}} Table no. {{Tno}} !!</h1> <!-- userName is the key of index func. in views.py / to print Variable-->
+
+    <form id="form" class="text-center" action=''> 
+        <input type="text" id="query" name="search" placeholder="Search...">
+        <input type="submit" value="Search">
+    </form>
+<center>
+
+<table class="table align-middle">
+    <thead>
+        <tr>
+            <th scope="col">Menu</th>
+            <th scope="col">Price</th>
+            <th scope="col">-</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">+</th>
+            <th scope="col">Add</th>
+        </tr>
+    </thead>
+
+        {% for menu in allmenu %}
+        <form method="post">
+            {% csrf_token %}
+            <tr>
+                <!-- <td><img src="{% static 'img/'|add:menu.menu_name|add:'.png' %}"></td> -->
+                <td><input type="hidden" name="menuName"  value="{{menu.menu_name}}"> {{menu.menu_name}}</td>
+                <td><input type="hidden" name="menuPrice" value="{{menu.menu_price}}"> {{menu.menu_price}} </td>
+                <td><h3 onclick="minus('{{menu.menu_name}}')">-</h3></td>
+                <td><input name="number" id="{{menu.menu_name}}" value="1" readonly></td>
+                <td><h3 onclick="plus('{{menu.menu_name}}')">+</h3></td>
+                <td><button value="Add table" class="btn btn-success" name="AddTable">Add</input></td>
+                <td><input type="hidden" name="userName" value="{{Uname}}"></td>
+                <td><input type="hidden" name="tableNo" value="{{Tno}}"></td>
+            </tr>
+        </form>
+
+        {% endfor %} 
+</table>
+</center>
+{% endblock %}

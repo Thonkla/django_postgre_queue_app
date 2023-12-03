@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>My Queue</title>
+{% endblock %}
+{% block content %}
+    <h1>My Queue</h1>
+
+    <table class="table">
+        <thead> 
+          <tr><center>
+            <th scope="col">Queue number</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Status</th>
+            <th scope="col">Time</th>
+          </center></tr>
+        </thead>
+        <tbody>
+          {% for Q in Qdata %}
+          <tr>
+            <td>{{Q.queue_id}}</td>
+            <td>{{Q.total_price}}</td>
+            <td>{{Q.status}}</td>
+            <td>{{Q.time}}</td>
+            <td><a href="/paymentsuccess/{{Q.queue_id}}/{{Q.total_price}}/{{Q.payment_method}}" class="btn btn-success"  target="_blank">See Detail</a></td>
+          </tr>
+          {% endfor %}
+        
+        </tbody>
+    </table>
+
+{% endblock %}

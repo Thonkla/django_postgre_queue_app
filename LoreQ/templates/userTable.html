@@ -1,0 +1,86 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    <title>My Table</title>
+{% endblock %}
+{% block content %}
+    <script src="{% static 'js/userTable.js' %}"></script>
+    <h1><input type="hidden" id="Uname" value="{{Uname}}"></h1>
+    <h1>My Table <input type="hidden" id="Tno" value="{{Tno}}">{{Tno}}</h1>
+    <table class="table">
+        <thead> 
+          <tr><center>
+            <th scope="col">Menu</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Delete</th>
+          </center></tr>
+        </thead>
+        <tbody>
+          {% for name in menuName %}
+          <form method="post" action="{% url 'plus_minus' name.id %}">
+            {% csrf_token %}
+            <tr>
+              <td>{{name.menu_name}}</td>
+              <!-- <td><button type="submit" name="minus" value="{{name.id}}">-</button></td> -->
+              <!-- <td><input id="{{name.menu_name}}" value="{{name.quantity}}" readonly></td> -->
+              <!-- <td><button type="submit" name="plus" value="{{name.id}}">+</button></td> -->
+              <td>{{name.quantity}}</td>
+              <td>{{name.menu_price}}</td>
+              <!-- <td><input type="submit" name="edit_menu" value="Edit Menu" class="btn btn-warning"></input></td> -->
+              <td><a href="{% url 'delete_menu' name.id %}" class="btn btn-danger">Delete Menu</a></td>
+            </tr>
+          </form>
+          {% endfor %}
+        </tbody>
+    </table>
+
+    {% if ttprice > 0 %}
+      <h3">Total Price <input type="hidden" id="ttprice" value="{{ttprice}}">{{ttprice}}</h3>
+
+      <button type="button" data-toggle="modal" data-target="#btnTopay" data-whatever="@mdo" class="btn btn-success">Pay Now
+      </button>
+      <div class="modal fade" id="btnTopay" tabindex="-1" role="dialog" aria-labelledby="btnTopayLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="btnTopayLabel">Pay Now</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form method="post">
+                          {% csrf_token %}
+                          <div class="form-group mb-3">
+                              <form>
+                                <label for="paymnet_method">Select Payment Method</label><br>
+                                <select name="paymnetmethod" id="paymnetmethod">
+                                  {% for pm in payment_method %}
+                                    <option value={{pm}}>{{pm}}</option>
+                                  {% endfor %}
+                                </select>
+                                <br>
+                              </form>
+                          </div>
+                          <div class="form-group mb-3">
+                              <label for="price">Total Price</label>
+                              <input type="number" name="Table_no" class="form-control" value={{ttprice}} readonly>
+                          </div>
+                          <div class="modal-footer" >
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-success" onclick="payNow()">Pay Now</button>
+                          </div>
+                      </form>  
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    {% else %}
+      <h3>No menu</h3>
+      <a class="btn btn-success" href="/inmain/{{Uname}}/{{Tno}}">Order Now </a>
+    {% endif %}
+
+{% endblock %}
