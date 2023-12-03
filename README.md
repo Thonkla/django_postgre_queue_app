@@ -1,8 +1,8 @@
 
 # Order and Queue Website
-a simple order and queue website for customer
-To submit the assignment of CPE 334 SOFTWARE ENGINEERING, KMUTT, Thailand
-Project name: LoreQ
+* Project name: LoreQ
+* a simple order and queue website for customer
+* To submit the assignment of CPE 334 SOFTWARE ENGINEERING, KMUTT, Thailand
 
 ##  Tech Stack:
 -   [Django](https://www.djangoproject.com/)  - Django makes it easier to build better web apps more quickly and with less code.
