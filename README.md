@@ -68,10 +68,12 @@
 ### Install Dependencies
 	pip install -r requirements.txt
 	Add Your Environment variable to  `.env`. Refer  `.sample.env`  file.
+### Install Django
+	pip install django
 ### Make Migrations
 	cd /your_path/LoreQ
 	python manage.py makemigrations
 	python manage.py migrate
-### Run Dev Server
+### Run Local Server
 	python manage.py runserver localhost:8000
 	Open  [localhost:8000](http://localhost:8000/)  in Browser.
