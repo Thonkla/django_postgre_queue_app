@@ -1,0 +1,89 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;;
+    background-color: yellow;
+    background: url('../img/star.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.wrapper{
+    width: 420px;
+    background-color: #794503;
+    color:white;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.wrapper h1 {
+   font-size: 36px;
+   text-align: center;
+}
+
+.wrapper .form-group{
+   position: relative;
+   width: 420px;
+   height: 80px;
+   margin: 30px 0;
+}
+
+.form-group input{
+  width: 400px;
+  height: 70px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, .2);
+  border-radius: 40px;
+  font-size: 20px;
+  color: white;
+  padding: 2px 10px 2px 14px;
+}
+
+.form-group input::placeholder{
+  color: white;
+}
+
+.form-group i {
+  position: absolute;
+  right: 20px;
+  top: 27px;
+  transform: translate(-50%);
+  font-size: 25px;
+
+}
+
+.wrapper .btn{
+  width: 420px;
+  height: 45px;
+  background-color: aliceblue;
+  border: none;
+  outline: none;
+  border-radius: 48px;
+  box-shadow: 0 0 10px solid rgba(0, 0, 0, .1);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.wrapper .btn:hover::after{
+   width: 100%;
+
+}
+
+.wrapper .brn::after{
+   content:"";
+   position: absolute;
+   border-radius: inherit;
+   width: 10%;
+   height: 5px;
+   background: black;
+   left: 0;
+   bottom: 0;
+   z-index: -1;
+   transition: all 0.25s ease;
+   left: 50%;
+   transform: translate(-50%);
+
+}
