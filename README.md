@@ -11,7 +11,7 @@
 
 ## Getting Started:
 - Setting Posgresql
-create new datebase: loreq
+### create new datebase: loreq
 ### create table: menu (insert your menu)
 	* menu_name [PK](character varying 100)
 	* menu_price (numeric)
