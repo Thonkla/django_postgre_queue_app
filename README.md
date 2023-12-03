@@ -1,7 +1,7 @@
 
 # Order and Queue Website
 * Project name: LoreQ
-* a simple order and queue website for customer
+* a simple order and make queue website for customer
 * To submit the assignment of CPE 334 SOFTWARE ENGINEERING, KMUTT, Thailand
 
 ##  Tech Stack:
