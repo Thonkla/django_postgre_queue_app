@@ -12,14 +12,14 @@ Project name: LoreQ
 ## Getting Started:
 - Setting Posgresql
 create new datebase: loreq
-create table: menu
+create table: menu (insert your menu)
 	* menu_name [PK](character varying 100)
 	* menu_price (numeric)
 	* description (character varying 500)
 	* menu_type (character varying 100)
 	* id (integer)
 
-	create table: payment_method
+	create table: payment_method (insert your payment method)
 	*  payment_method [PK](character varying 50)
 	* description (character varying 50)
 	
@@ -55,23 +55,23 @@ create table: menu
 	* menu_price (double precision)
 	* quantity (integer)
 -   Clone
-cd /your_path
-mkdir LoreQ
-cd LoreQ
-git clone https://github.com/Thonkla/django_postgre_queue_app.git .
+* cd /your_path
+* mkdir LoreQ
+* cd LoreQ
+* git clone https://github.com/Thonkla/django_postgre_queue_app.git .
 -   Create a Virtual Environment
-pip install virtualenv
-cd LoreQ
-python3.9 -m virtualenv .
-.\Scripts\activate
+* pip install virtualenv
+* cd LoreQ
+* python3.9 -m virtualenv .
+* .\Scripts\activate
 **For Mac use:**  `source bin/activate`
 -   Install Dependencies
-pip install -r requirements.txt
-Add Your Environment variable to  `.env`. Refer  `.sample.env`  file.
+* pip install -r requirements.txt
+* Add Your Environment variable to  `.env`. Refer  `.sample.env`  file.
 -   Make Migrations
-cd /your_path/LoreQ
-python manage.py makemigrations
-python manage.py migrate
+* cd /your_path/LoreQ
+* python manage.py makemigrations
+* python manage.py migrate
 -   Run Dev Server
-python manage.py runserver localhost:8000
-Open  [localhost:8000](http://localhost:8000/)  in Browser.
+* python manage.py runserver localhost:8000
+* Open  [localhost:8000](http://localhost:8000/)  in Browser.
