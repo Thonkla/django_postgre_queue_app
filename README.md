@@ -74,6 +74,17 @@
 	cd /your_path/LoreQ
 	python manage.py makemigrations
 	python manage.py migrate
+### Edit setting.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'loreq', # database name
+        'USER': 'your username',
+        'PASSWORD': 'your password',
+        'HOST':'localhost',
+        'PORT': '5432'
+    }
+}
 ### Run Local Server
 	python manage.py runserver localhost:8000
 	Open  [localhost:8000](http://localhost:8000/)  in Browser.
